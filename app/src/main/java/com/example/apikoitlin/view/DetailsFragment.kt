@@ -9,6 +9,7 @@ import com.example.apikoitlin.R
 import com.example.apikoitlin.model.City
 import kotlinx.android.synthetic.main.details_fragment.*
 
+//Fragment to show more covid numbers details for each city
 class DetailsFragment(private val city: City):Fragment(){
 
     override fun onCreateView(
@@ -16,12 +17,14 @@ class DetailsFragment(private val city: City):Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //inflate fragment layout
         return inflater.inflate(R.layout.details_fragment,container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //set values for fragment's fields
         f_city_name_textview.text = "City Name: "+city.name
         f_date_name_textview.text = "Date: "+city.date
         f_confirmed_cases_textview.text = "Confirmed Cases: "+city.confirmed.toString()

@@ -4,9 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.apikoitlin.model.City
-import com.example.apikoitlin.model.CovidRetrofit
-import com.example.apikoitlin.model.Data
-import com.example.apikoitlin.model.Region
+import com.example.apikoitlin.model.network.CovidRetrofit
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -15,6 +13,7 @@ class CovidViewModel: ViewModel() {
 
     private val cd = CompositeDisposable()
     private val covidRetrofit = CovidRetrofit()
+    //city livedata
     val liveData = MutableLiveData<List<City>>()
 
     fun getNumbers(){
@@ -25,7 +24,7 @@ class CovidViewModel: ViewModel() {
                     Schedulers.io()
                 ).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({response ->
-
+                    //0 = USA and get cities from there
                     liveData.postValue(response.data[0].region.cities)
                     cd.clear()
 
