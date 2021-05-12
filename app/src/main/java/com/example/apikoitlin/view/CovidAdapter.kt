@@ -6,11 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apikoitlin.R
 import com.example.apikoitlin.model.City
-import com.example.apikoitlin.model.Data
-import com.example.apikoitlin.model.Region
 import kotlinx.android.synthetic.main.covid_item_layout.view.*
 
-class CovidAdapter(private var covidList:List<City>) :
+class CovidAdapter(private var covidList:List<City>,var cl:(City)->Unit) :
     RecyclerView.Adapter<CovidAdapter.CovidViewHolder>()  {
 
     inner class CovidViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
@@ -26,9 +24,9 @@ class CovidAdapter(private var covidList:List<City>) :
         covidList[position].let{
             holder.itemView.apply {
                 city_textview.text = it.name
-                date_textview.text = it.date
+                date_textview.text = "Latest: "+ it.date
             }
-        }
+            holder.itemView.setOnClickListener { cl(covidList[position]) }        }
 
     }
 

@@ -1,6 +1,5 @@
 package com.example.apikoitlin.model
 
-import com.example.apikoitlin.util.Constants
 import com.example.apikoitlin.util.Constants.Companion.BASE_URL
 import com.example.apikoitlin.util.Constants.Companion.END_POINT
 import com.example.apikoitlin.util.Constants.Companion.REGION

@@ -4,8 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.MainActivity"
+    android:background="@color/teal_700">
 
+    <FrameLayout
+        android:id="@+id/details_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="@id/covid_recyclerview"
+        app:layout_constraintBottom_toBottomOf="@id/covid_recyclerview"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/covid_recyclerview"
         android:layout_width="match_parent"

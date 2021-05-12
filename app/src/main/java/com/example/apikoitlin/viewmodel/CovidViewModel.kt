@@ -17,7 +17,7 @@ class CovidViewModel: ViewModel() {
     private val covidRetrofit = CovidRetrofit()
     val liveData = MutableLiveData<List<City>>()
 
-    fun getQuotesFromServer(){
+    fun getNumbers(){
 
         cd.add(
             covidRetrofit.getCovidNumbers()
